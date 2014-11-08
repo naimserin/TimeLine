@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Time Line</title>
+    <script src="~/Src/js/jquery-1.11.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <style>
+        .content {
+            width: 800px;
+            display: block;
+            overflow-x: hidden;
+            border:1px solid #e1e1e1;
+            
+            position:relative;
+            margin:0 auto;
+        }
+
+            .content .timeLineYears {
+                width:800px;
+                display:block;
+                overflow-x:hidden;
+                height:120px;
+                border:1px solid #e1e1e1;
+                position:relative;
+            }
+
+                .content .timeLineYears .tlSpace {
+                    width:3000px;
+                    height:105px;
+                    overflow:hidden;
+                    border:1px solid #e1e1e1;
+                    position:absolute;
+                    left:-100px;
+                    top:0px;    
+                }
+
+                    .content .timeLineYears .tlSpace .tlYear {
+                        width:100px;
+                        height:100px;
+                        border:1px solid #e1e1e1;
+                        display:inline-table;
+                        padding:0px;
+                        margin:0px;
+                        cursor:pointer;
+                    }
+
+                    .content .timeLineYears .tlSpace .tlYearAfter {
+                        width:100px;
+                        height:100px;
+                        
+                        float:left;
+                        padding:0px;
+                        margin:0px;
+                    }
+
+                    .content .timeLineYears .tlSpace .tlYearBefore {
+                        width:100px;
+                        height:100px;
+                        
+                        float:right;
+                        padding:0px;
+                        margin:0px;
+                    }
+
+                    .content .timeLineYears .tlSpace .tlScroll {
+                        width:100px;
+                        height:100px;
+                        border:1px solid #e1e1e1;
+                        position:absolute;
+                        top:0px;
+                        left:100px;
+                        z-index:10;
+                        display:inline;
+                        cursor:e-resize;
+                        background-color:aqua;
+                    }
+
+            .content .timeLineContents {
+                width:800px;
+                display:block;
+                overflow-x:hidden;
+                height:102px;
+                border:1px solid #e1e1e1;
+                position:relative;
+            }
+
+                .content .timeLineContents .tlSpace {
+                    width:3000px;
+                    height:101px;
+                    overflow:hidden;
+                    border:1px solid #e1e1e1;
+                    position:absolute;
+                    left:-100px;
+                    top:0px;                    
+                }
+
+                    .content .timeLineContents .tlSpace .tlItem {
+                        width:100px;
+                        height:100px;
+                        border:1px solid #e1e1e1;
+                        display:inline-table;
+                        padding:0px;
+                        margin:0px;
+                    }
+                    .content .timeLineContents .tlSpace .tlYearAfter {
+                        width:100px;
+                        height:100px;
+                        
+                        float:left;
+                        padding:0px;
+                        margin:0px;
+                    }
+
+                    .content .timeLineContents .tlSpace .tlYearBefore {
+                        width:100px;
+                        height:100px;
+                        
+                        float:right;
+                        padding:0px;
+                        margin:0px;
+                    }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="timeLineYears">
+            <div class="tlSpace">
+                <div class="tlScroll"></div>
+                <div class="tlYearAfter"></div>
+                <div class="tlYear">2001</div>
+                <div class="tlYear">2002</div>
+                <div class="tlYear">2003</div>
+                <div class="tlYear">2004</div>
+                <div class="tlYear">2005</div>
+                <div class="tlYear">2006</div>
+                <div class="tlYear">2007</div>
+                <div class="tlYear">2008</div>
+                <div class="tlYear">2009</div>
+                <div class="tlYear">2010</div>
+                <div class="tlYearBefore"></div>
+            </div>
+        </div>
+        <div class="timeLineContents">
+            <div class="tlSpace">
+                <div class="tlYearAfter"></div>
+                <div class="tlItem">2001</div>
+                <div class="tlItem">2002</div>
+                <div class="tlItem">2003</div>
+                <div class="tlItem">2004</div>
+                <div class="tlItem">2005</div>
+                <div class="tlItem">2006</div>
+                <div class="tlItem">2007</div>
+                <div class="tlItem">2008</div>
+                <div class="tlItem">2009</div>
+                <div class="tlItem">2010</div>
+                <div class="tlYearBefore"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var dragOncekiLeft = 0;
+            var dragSimdikiLeft = 0;
+            $(".tlScroll").draggable({
+                axis: "x",
+                containment: "parent",
+                scroll: false,
+                grid:[0.1,0.1],
+                drag: function () {
+                    dragSimdikiLeft = Number($(this).position().left);
+                    if (dragSimdikiLeft < dragOncekiLeft) {
+                        $(".tlSpace").css({ 'left': '+=1.7px' });
+                    } else if (dragSimdikiLeft > dragOncekiLeft) {
+                        $(".tlSpace").css({ 'left': '-=1.7px' });
+                    }
+                    dragOncekiLeft = dragSimdikiLeft;
+                }
+            });
+
+            $(".content .timeLineYears .tlSpace .tlYear").click(function () {
+                var dragLeft = 0;
+                console.log($(this).index());
+                console.log($(this).offset().left);
+                console.log($(this).parent().offset().left);
+                console.log(Number($(".timeLineYears").outerWidth() / ($(this).index())));
+
+                dragSimdikiLeft = ((Number($(this).offset().left) - Number($(this).parent().offset().left)) - Number($(".timeLineYears").outerWidth() / ($(this).index())));
+                dragLeft = ((Number($(this).offset().left) - Number($(this).parent().offset().left)));
+
+
+
+
+                $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
+                $(".tlScroll").animate({ 'left': '' + dragLeft + 'px' }, 1000);
+
+                dragOncekiLeft = dragSimdikiLeft;
+
+            });
+
+            var yearGenislik = 0;
+            var itemSay = 0;
+            $(".tlYear").each(function () {
+                itemSay += 1;
+                yearGenislik += (Number($(this).outerWidth())+25);
+            });
+            $(".tlSpace").innerWidth(yearGenislik);
+
+
+
+        });
+    </script>
+</body>
+</html>
