@@ -140,6 +140,16 @@
                 <div class="tlYear">2008</div>
                 <div class="tlYear">2009</div>
                 <div class="tlYear">2010</div>
+                <div class="tlYear">2011</div>
+                <div class="tlYear">2012</div>
+                <div class="tlYear">2013</div>
+                <div class="tlYear">2014</div>
+                <div class="tlYear">2015</div>
+                <div class="tlYear">2016</div>
+                <div class="tlYear">2017</div>
+                <div class="tlYear">2018</div>
+                <div class="tlYear">2019</div>
+                <div class="tlYear">2020</div>
                 <div class="tlYearBefore"></div>
             </div>
         </div>
@@ -156,6 +166,16 @@
                 <div class="tlItem">2008</div>
                 <div class="tlItem">2009</div>
                 <div class="tlItem">2010</div>
+                <div class="tlItem">2011</div>
+                <div class="tlItem">2012</div>
+                <div class="tlItem">2013</div>
+                <div class="tlItem">2014</div>
+                <div class="tlItem">2015</div>
+                <div class="tlItem">2016</div>
+                <div class="tlItem">2017</div>
+                <div class="tlItem">2018</div>
+                <div class="tlItem">2019</div>
+                <div class="tlItem">2020</div>
                 <div class="tlYearBefore"></div>
             </div>
         </div>
@@ -168,13 +188,18 @@
                 axis: "x",
                 containment: "parent",
                 scroll: false,
-                grid:[0.1,0.1],
+                grid:[0.5,0.1],
                 drag: function () {
                     dragSimdikiLeft = Number($(this).position().left);
-                    if (dragSimdikiLeft < dragOncekiLeft) {
-                        $(".tlSpace").css({ 'left': '+=1.7px' });
-                    } else if (dragSimdikiLeft > dragOncekiLeft) {
-                        $(".tlSpace").css({ 'left': '-=1.7px' });
+                    if ($(".tlSpace").position().left > -99) {
+                        dragOncekiLeft = -100;
+                        $(".tlSpace").css({ 'left': '-100px' });
+                    } else {
+                        if (dragSimdikiLeft < dragOncekiLeft) {
+                            $(".tlSpace").css({ 'left': '+=2px' });
+                        } else if (dragSimdikiLeft > dragOncekiLeft) {
+                            $(".tlSpace").css({ 'left': '-=2px' });
+                        }
                     }
                     dragOncekiLeft = dragSimdikiLeft;
                 }
@@ -182,29 +207,41 @@
 
             $(".content .timeLineYears .tlSpace .tlYear").click(function () {
                 var dragLeft = 0;
-                console.log($(this).index());
-                console.log($(this).offset().left);
-                console.log($(this).parent().offset().left);
-                console.log(Number($(".timeLineYears").outerWidth() / ($(this).index())));
 
-                dragSimdikiLeft = ((Number($(this).offset().left) - Number($(this).parent().offset().left)) - Number($(".timeLineYears").outerWidth() / ($(this).index())));
-                dragLeft = ((Number($(this).offset().left) - Number($(this).parent().offset().left)));
+                var s0 = Number($(".tlScroll").position().left);
 
+                var p0 = Number($(this).position().left);
+                var p1 = Number($(this).parent().position().left);
+                var p2 = Number($(this).parent().parent().position().left);
 
+                var w0 = Number($(this).outerWidth());
+                var w1 = Number($(this).parent().outerWidth());
+                var w2 = Number($(this).parent().parent().outerWidth());
 
+                var pw0 = p0 + (w0 / 2);
+                if (pw0 <= (w2 / 2)) {
+                    dragSimdikiLeft = -100;
+                    $(".tlSpace").animate({ 'left': '' + dragSimdikiLeft + 'px' }, 1000);
+                } else if (pw0 > (w2 / 2) && pw0 < (w1 - (w2 / 2))) {
+                    dragSimdikiLeft = (pw0 - ((w2 / 2)));
+                    $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
 
-                $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
+                } else if (pw0 > (w1 - (w2 / 2))) {
+                    //dragSimdikiLeft = (p0 - (w2 / 1.5));
+                    dragSimdikiLeft = ((w1 - (w2)) - w0);
+                    $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
+                }
+                dragLeft = p0;
                 $(".tlScroll").animate({ 'left': '' + dragLeft + 'px' }, 1000);
-
                 dragOncekiLeft = dragSimdikiLeft;
 
             });
 
-            var yearGenislik = 0;
+            var yearGenislik = 280;
             var itemSay = 0;
             $(".tlYear").each(function () {
                 itemSay += 1;
-                yearGenislik += (Number($(this).outerWidth())+25);
+                yearGenislik += (Number($(this).outerWidth()));
             });
             $(".tlSpace").innerWidth(yearGenislik);
 
