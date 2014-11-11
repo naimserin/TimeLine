@@ -5,248 +5,249 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Time Line</title>
-    <script src="~/Src/js/jquery-1.11.1.min.js"></script>
-    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-    <style>
-        .content {
-            width: 800px;
-            display: block;
-            overflow-x: hidden;
-            border:1px solid #e1e1e1;
-            
-            position:relative;
-            margin:0 auto;
-        }
 
-            .content .timeLineYears {
-                width:800px;
-                display:block;
-                overflow-x:hidden;
-                height:120px;
-                border:1px solid #e1e1e1;
-                position:relative;
-            }
-
-                .content .timeLineYears .tlSpace {
-                    width:3000px;
-                    height:105px;
-                    overflow:hidden;
-                    border:1px solid #e1e1e1;
-                    position:absolute;
-                    left:-100px;
-                    top:0px;    
-                }
-
-                    .content .timeLineYears .tlSpace .tlYear {
-                        width:100px;
-                        height:100px;
-                        border:1px solid #e1e1e1;
-                        display:inline-table;
-                        padding:0px;
-                        margin:0px;
-                        cursor:pointer;
-                    }
-
-                    .content .timeLineYears .tlSpace .tlYearAfter {
-                        width:100px;
-                        height:100px;
-                        
-                        float:left;
-                        padding:0px;
-                        margin:0px;
-                    }
-
-                    .content .timeLineYears .tlSpace .tlYearBefore {
-                        width:100px;
-                        height:100px;
-                        
-                        float:right;
-                        padding:0px;
-                        margin:0px;
-                    }
-
-                    .content .timeLineYears .tlSpace .tlScroll {
-                        width:100px;
-                        height:100px;
-                        border:1px solid #e1e1e1;
-                        position:absolute;
-                        top:0px;
-                        left:100px;
-                        z-index:10;
-                        display:inline;
-                        cursor:e-resize;
-                        background-color:aqua;
-                    }
-
-            .content .timeLineContents {
-                width:800px;
-                display:block;
-                overflow-x:hidden;
-                height:102px;
-                border:1px solid #e1e1e1;
-                position:relative;
-            }
-
-                .content .timeLineContents .tlSpace {
-                    width:3000px;
-                    height:101px;
-                    overflow:hidden;
-                    border:1px solid #e1e1e1;
-                    position:absolute;
-                    left:-100px;
-                    top:0px;                    
-                }
-
-                    .content .timeLineContents .tlSpace .tlItem {
-                        width:100px;
-                        height:100px;
-                        border:1px solid #e1e1e1;
-                        display:inline-table;
-                        padding:0px;
-                        margin:0px;
-                    }
-                    .content .timeLineContents .tlSpace .tlYearAfter {
-                        width:100px;
-                        height:100px;
-                        
-                        float:left;
-                        padding:0px;
-                        margin:0px;
-                    }
-
-                    .content .timeLineContents .tlSpace .tlYearBefore {
-                        width:100px;
-                        height:100px;
-                        
-                        float:right;
-                        padding:0px;
-                        margin:0px;
-                    }
-    </style>
+    <link href="/Src/css/time.css" rel="stylesheet" />
+    <script src="/Src/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Src/js/jquery-ui.min.js"></script>
 </head>
 <body>
-    <div class="content">
-        <div class="timeLineYears">
-            <div class="tlSpace">
-                <div class="tlScroll"></div>
-                <div class="tlYearAfter"></div>
-                <div class="tlYear">2001</div>
-                <div class="tlYear">2002</div>
-                <div class="tlYear">2003</div>
-                <div class="tlYear">2004</div>
-                <div class="tlYear">2005</div>
-                <div class="tlYear">2006</div>
-                <div class="tlYear">2007</div>
-                <div class="tlYear">2008</div>
-                <div class="tlYear">2009</div>
-                <div class="tlYear">2010</div>
-                <div class="tlYear">2011</div>
-                <div class="tlYear">2012</div>
-                <div class="tlYear">2013</div>
-                <div class="tlYear">2014</div>
-                <div class="tlYear">2015</div>
-                <div class="tlYear">2016</div>
-                <div class="tlYear">2017</div>
-                <div class="tlYear">2018</div>
-                <div class="tlYear">2019</div>
-                <div class="tlYear">2020</div>
-                <div class="tlYearBefore"></div>
+    <div id="zt" style="margin-left: 100px; margin-top: 150px;">
+        <div class="content">
+            <div class="timeLineYears">
+                <div class="tlSpace">
+                    <div class="tlScroll"></div>
+                    <div class="tlYearAfter"></div>
+                    <div class="tlYear">1960</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1965</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1970</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1975</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1980</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1985</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1990</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">1995</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">2000</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">2005</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">2010</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">&nbsp;</div>
+                    <div class="tlYear">2014</div>
+                    <div class="tlYearBefore"></div>
+                </div>
+            </div>
+
+
+            <div class="timeLineContents">
+                <div class="tlSpace">
+                    <div class="tlYearAfter"></div>
+                    <div class="tlItem">1960</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">4</div>
+                    <div class="tlItem">1965</div>
+                    <div class="tlItem">6</div>
+                    <div class="tlItem">7</div>
+                    <div class="tlItem">8</div>
+                    <div class="tlItem">9</div>
+                    <div class="tlItem">1970</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">4</div>
+                    <div class="tlItem">1975</div>
+                    <div class="tlItem">6</div>
+                    <div class="tlItem">7</div>
+                    <div class="tlItem">8</div>
+                    <div class="tlItem">9</div>
+                    <div class="tlItem">1980</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">4</div>
+                    <div class="tlItem">1985</div>
+                    <div class="tlItem">6</div>
+                    <div class="tlItem">7</div>
+                    <div class="tlItem">8</div>
+                    <div class="tlItem">9</div>
+                    <div class="tlItem">1990</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">4</div>
+                    <div class="tlItem">1995</div>
+                    <div class="tlItem">6</div>
+                    <div class="tlItem">7</div>
+                    <div class="tlItem">8</div>
+                    <div class="tlItem">9</div>
+                    <div class="tlItem">2000</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">4</div>
+                    <div class="tlItem">2005</div>
+                    <div class="tlItem">6</div>
+                    <div class="tlItem">7</div>
+                    <div class="tlItem">8</div>
+                    <div class="tlItem">9</div>
+                    <div class="tlItem">2010</div>
+                    <div class="tlItem">1</div>
+                    <div class="tlItem">2</div>
+                    <div class="tlItem">3</div>
+                    <div class="tlItem">2014</div>
+                    <div class="tlYearBefore"></div>
+                </div>
             </div>
         </div>
-        <div class="timeLineContents">
-            <div class="tlSpace">
-                <div class="tlYearAfter"></div>
-                <div class="tlItem">2001</div>
-                <div class="tlItem">2002</div>
-                <div class="tlItem">2003</div>
-                <div class="tlItem">2004</div>
-                <div class="tlItem">2005</div>
-                <div class="tlItem">2006</div>
-                <div class="tlItem">2007</div>
-                <div class="tlItem">2008</div>
-                <div class="tlItem">2009</div>
-                <div class="tlItem">2010</div>
-                <div class="tlItem">2011</div>
-                <div class="tlItem">2012</div>
-                <div class="tlItem">2013</div>
-                <div class="tlItem">2014</div>
-                <div class="tlItem">2015</div>
-                <div class="tlItem">2016</div>
-                <div class="tlItem">2017</div>
-                <div class="tlItem">2018</div>
-                <div class="tlItem">2019</div>
-                <div class="tlItem">2020</div>
-                <div class="tlYearBefore"></div>
-            </div>
-        </div>
+
+
     </div>
+
     <script>
         $(document).ready(function () {
             var dragOncekiLeft = 0;
             var dragSimdikiLeft = 0;
+            var dragSimdikiLeft1 = 0;
+
             $(".tlScroll").draggable({
                 axis: "x",
-                containment: "parent",
+                containment: ".timeLineYears",
                 scroll: false,
-                grid:[0.5,0.1],
+                grid: [0.1, 0.1],
+                scope: 'tlYear',
                 drag: function () {
                     dragSimdikiLeft = Number($(this).position().left);
-                    if ($(".tlSpace").position().left > -99) {
-                        dragOncekiLeft = -100;
-                        $(".tlSpace").css({ 'left': '-100px' });
+                    if ($(".content .timeLineYears .tlSpace").position().left > -50) {
+                        $(".content .timeLineYears .tlSpace").css({ 'left': '-50px' });
                     } else {
                         if (dragSimdikiLeft < dragOncekiLeft) {
-                            $(".tlSpace").css({ 'left': '+=2px' });
+                            $(".content .timeLineYears .tlSpace").css({ 'left': '+=2px' });
                         } else if (dragSimdikiLeft > dragOncekiLeft) {
-                            $(".tlSpace").css({ 'left': '-=2px' });
+                            $(".content .timeLineYears .tlSpace").css({ 'left': '-=2px' });
                         }
                     }
                     dragOncekiLeft = dragSimdikiLeft;
                 }
             });
 
-            $(".content .timeLineYears .tlSpace .tlYear").click(function () {
-                var dragLeft = 0;
-
-                var s0 = Number($(".tlScroll").position().left);
-
-                var p0 = Number($(this).position().left);
-                var p1 = Number($(this).parent().position().left);
-                var p2 = Number($(this).parent().parent().position().left);
-
-                var w0 = Number($(this).outerWidth());
-                var w1 = Number($(this).parent().outerWidth());
-                var w2 = Number($(this).parent().parent().outerWidth());
-
-                var pw0 = p0 + (w0 / 2);
-                if (pw0 <= (w2 / 2)) {
-                    dragSimdikiLeft = -100;
-                    $(".tlSpace").animate({ 'left': '' + dragSimdikiLeft + 'px' }, 1000);
-                } else if (pw0 > (w2 / 2) && pw0 < (w1 - (w2 / 2))) {
-                    dragSimdikiLeft = (pw0 - ((w2 / 2)));
-                    $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
-
-                } else if (pw0 > (w1 - (w2 / 2))) {
-                    //dragSimdikiLeft = (p0 - (w2 / 1.5));
-                    dragSimdikiLeft = ((w1 - (w2)) - w0);
-                    $(".tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
-                }
-                dragLeft = p0;
-                $(".tlScroll").animate({ 'left': '' + dragLeft + 'px' }, 1000);
-                dragOncekiLeft = dragSimdikiLeft;
-
+            $(".tlYear").droppable({
+                accept: ".tlScroll",
+                greedy: false,
+                tolerance: "intersect",
+                scope: 'tlYear',
+                drop: function (event, ui) { timeItem(this); }
             });
 
-            var yearGenislik = 280;
+            $(".content .timeLineYears .tlSpace .tlYear").click(function () { timeItem(this); });
+
+            var yearGenislik = 430;
             var itemSay = 0;
             $(".tlYear").each(function () {
                 itemSay += 1;
                 yearGenislik += (Number($(this).outerWidth()));
             });
+            var yearGenislik1 = 0;
+            var itemSay1 = 0;
+            $(".tlItem").each(function () {
+                itemSay1 += 1;
+                yearGenislik1 += (Number($(this).outerWidth()) + 23);
+            });
+            console.log(itemSay);
+            console.log(itemSay1);
             $(".tlSpace").innerWidth(yearGenislik);
+            $(".content .timeLineContents .tlSpace").innerWidth(yearGenislik1);
 
+            function timeItem(item) {
+                var dragLeft = 0;
+                var s0 = Number($(".tlScroll").position().left);
+                var p0 = Number($(item).position().left);
+                var p1 = Number($(item).parent().position().left);
+                var p2 = Number($(item).parent().parent().position().left);
+                var w0 = Number($(item).outerWidth());
+                var w1 = Number($(item).parent().outerWidth());
+                var w2 = Number($(item).parent().parent().outerWidth());
+                var pw0 = p0 + (w0 / 2);
+                var cp0 = Number($(".tlItem").eq($(item).index() - 2).position().left);
+                var cp1 = Number($(".tlItem").eq($(item).index() - 2).parent().position().left);
+                var cp2 = Number($(".tlItem").eq($(item).index() - 2).parent().parent().position().left);
+                var cw0 = Number($(".tlItem").eq($(item).index() - 2).outerWidth());
+                var cw1 = Number($(".tlItem").eq($(item).index() - 2).parent().outerWidth());
+                var cw2 = Number($(".tlItem").eq($(item).index() - 2).parent().parent().outerWidth());
+                var cpw0 = cp0 + (cw0 / 2);
+                if (pw0 <= (w2 / 2)) {
+                    dragSimdikiLeft = -50;
+                    $(".content .timeLineYears .tlSpace").animate({ 'left': '' + dragSimdikiLeft + 'px' }, 1000);
+                } else if (pw0 > (w2 / 2) && pw0 < (w1 - (w2 / 2))) {
+                    dragSimdikiLeft = (pw0 - ((w2 / 2)));
+                    $(".content .timeLineYears .tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
+                } else if (pw0 > (w1 - (w2 / 2))) {
+                    dragSimdikiLeft = ((w1 - (w2)) - w0);
+                    $(".content .timeLineYears .tlSpace").animate({ 'left': '-' + dragSimdikiLeft + 'px' }, 1000);
+                }
+                if (pw0 <= (cw2 / 2)) {
+                    if (($(item).index() - 2) == 0) {
+                        dragSimdikiLeft1 = -100;
+                    } else {
+                        dragSimdikiLeft1 = -((cw0 * ($(item).index() - 2)) - (cw0 / 2));
+                    }
+                    $(".content .timeLineContents .tlSpace").animate({ 'left': '' + dragSimdikiLeft1 + 'px' }, 1000);
+                } else if (pw0 > (w2 / 2) && pw0 < (w1 - (w2 / 2))) {
+                    dragSimdikiLeft1 = (cpw0 - (((cw2 / 2))));
+                    $(".content .timeLineContents .tlSpace").animate({ 'left': '-' + (dragSimdikiLeft1) + 'px' }, 1000);
 
+                } else if (pw0 > (w1 - (w2 / 2))) {
+                    if (($(item).index() - 2) == (itemSay1 - 1)) {
+                        dragSimdikiLeft1 = ((cw1 - (cw2 + 25)));
+                    } else {
+                        dragSimdikiLeft1 = (cw2 / 2) + ((cw0 * ($(item).index() - 2)) - (cw0 / 2));
+                    }
+                    $(".content .timeLineContents .tlSpace").animate({ 'left': '-' + dragSimdikiLeft1 + 'px' }, 1000);
+                }
 
+                dragLeft = p0;
+                $(".tlScroll").animate({ 'left': '' + (dragLeft - 51) + 'px' }, 1000);
+                dragOncekiLeft = dragSimdikiLeft;
+            }
         });
     </script>
 </body>

@@ -1,0 +1,179 @@
+#zt .content {
+   width: 1043px;
+   display: block;
+   overflow-x: hidden;
+   position: relative;
+   margin: 0 auto;
+   padding-top: 28px;
+   background-color: #d6cdbc;
+}
+
+
+#zt .content .timeLineYears {
+   width: 1043px;
+   display: block;
+   height: 113px;
+   position: relative;
+   background-image: url(../img/bgtimeline.jpg);
+   background-repeat: no-repeat;
+   background-position: center top;
+}
+
+#zt .content .timeLineYears .tlSpace {
+   width: 3000px;
+   height: 105px;
+   position: absolute;
+   left: -50px;
+   top: 0px;
+}
+
+#zt .content .timeLineYears .tlSpace .tlYear {
+   width: 50px;
+   height: 100px;
+   display: inline-table;
+   margin: 0px;
+   cursor: pointer;
+   text-align: center;
+   color: #FFFFFF;
+   font-size: 22px;
+   text-shadow: 2px 2px 2px #000000;
+   padding-top: 3px;
+   padding-right: 0px;
+   padding-bottom: 0px;
+   padding-left: 0px;
+}
+
+#zt .content .timeLineYears .tlSpace .tlYearAfter {
+width:100px;
+height:100px;
+
+float:left;
+padding:0px;
+margin:0px;
+}
+
+#zt .content .timeLineYears .tlSpace .tlYearBefore {
+width:100px;
+height:100px;
+
+float:right;
+padding:0px;
+margin:0px;
+}
+
+#zt .content .timeLineYears .tlSpace .tlScroll {
+   width: 154px;
+   height: 117px;
+   position: absolute;
+   top: -25px;
+   left: 50px;
+   z-index: 10;
+   display: inline;
+   cursor: e-resize;
+   background-image: url(../img/tv3.png);
+   background-repeat: no-repeat;
+}
+
+#zt .content .timeLineContents {
+   width: 1044px;
+   display: block;
+   overflow-x: hidden;
+   height: 433px;
+   position: relative;
+}
+
+#zt .content .timeLineContents .tlSpace {
+   width: 3000px;
+   overflow: hidden;
+   position: absolute;
+   left: -100px;
+   top: 0px;
+   height: 424px;
+}
+
+#zt .content .timeLineContents .tlSpace .tlItem {
+   width: 148px;
+   display: inline-table;
+   padding: 0px;
+   margin-left: 8px;
+   margin-right: 8px;
+   text-align:center;
+}
+#zt .content .timeLineContents .tlSpace .tlYearAfter {
+width:100px;
+height:100px;
+float:left;
+padding:0px;
+margin:0px;
+}
+
+#zt .content .timeLineContents .tlSpace .tlYearBefore {
+width:100px;
+height:100px;
+float:right;
+padding:0px;
+margin:0px;
+}
+
+.tlItem div.dateCap{
+   float: left;
+   background-image: url(../img/zm-contentCap.png);
+   background-repeat: no-repeat;
+   height: 37px;
+   width: 140px;
+   color: #d4d4d4;
+   padding-left: 10px;
+   line-height: 28px;
+   font-size: 17px;
+   margin-bottom: 10px;
+   text-shadow: 1px 1px 1px #000000;
+}
+
+.tlItem div.box{
+   float: left;
+   position: relative;
+   width: 154px;
+   height: 115px;
+   margin-bottom: 10px;
+}
+.tlItem div.box div.resim{
+   float: left;
+   width: 150px;
+   height: 112px;
+   padding: 1px;
+   background-color: #FFF;
+   -webkit-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.24);
+   -moz-box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.24);
+   box-shadow: 3px 1px 5px 0px rgba(0,0,0,0.24);
+}
+.tlItem div.box:hover div.resim{
+   background-color: #e8a009;
+}
+.tlItem div.box div.resim img{
+   float: left;
+   width: 150px;
+   height: 112px;
+}
+.tlItem div.box div.text{
+   width: 140px;
+   font-family: Arial, Helvetica, sans-serif;
+   color: #FFFFFF;
+   float: left;
+   position: absolute;
+   bottom: 2px;
+   left: 1px;
+   background-color: rgba(160, 139, 99, 0.7);
+   padding: 5px;
+}
+.tlItem div.box div.text span.name{
+   font-size: 14px;
+   font-weight: bold;
+   display: block;
+   margin-bottom: 3px;
+}
+.tlItem div.text span.bolum{
+   font-size: 10px;
+   font-weight: bold;
+   float: left;
+}
+
