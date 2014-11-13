@@ -23,7 +23,7 @@
    width: 3000px;
    height: 105px;
    position: absolute;
-   left: -50px;
+   left: -30px;
    top: 0px;
 }
 
@@ -69,9 +69,10 @@ margin:0px;
    left: 50px;
    z-index: 10;
    display: inline;
-   cursor: e-resize;
-   background-image: url(../img/tv3.png);
+   cursor: pointer;
+   background-color:aqua;
    background-repeat: no-repeat;
+   opacity:0.5;
 }
 
 #zt .content .timeLineContents {

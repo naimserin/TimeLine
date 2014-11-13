@@ -153,19 +153,19 @@
                 axis: "x",
                 containment: ".timeLineYears",
                 scroll: false,
-                grid: [0.1, 0.1],
+                grid: [55, 55],
                 scope: 'tlYear',
                 drag: function () {
                     dragSimdikiLeft = Number($(this).position().left);
-                    if ($(".content .timeLineYears .tlSpace").position().left > -50) {
-                        $(".content .timeLineYears .tlSpace").css({ 'left': '-50px' });
+                    if ($(".content .timeLineYears .tlSpace").position().left > -30) {
+                        $(".content .timeLineYears .tlSpace").css({ 'left': '-30px' });
                     } else {
                         if (dragSimdikiLeft < dragOncekiLeft) {
                             $(".content .timeLineYears .tlSpace").css({ 'left': '+=2px' });
-                        } else if (dragSimdikiLeft > dragOncekiLeft) {
-                            $(".content .timeLineYears .tlSpace").css({ 'left': '-=2px' });
+                        } else if ((($(".content .timeLineYears .tlSpace").outerWidth())) < ($(".tlScroll").position().left + $(".tlScroll").outerWidth())) {
+                            timeItem($(".tlYear").eq(itemSay - 1));
                         }
-                    }
+                    }                    
                     dragOncekiLeft = dragSimdikiLeft;
                 }
             });
@@ -215,7 +215,7 @@
                 var cw2 = Number($(".tlItem").eq($(item).index() - 2).parent().parent().outerWidth());
                 var cpw0 = cp0 + (cw0 / 2);
                 if (pw0 <= (w2 / 2)) {
-                    dragSimdikiLeft = -50;
+                    dragSimdikiLeft = -30;
                     $(".content .timeLineYears .tlSpace").animate({ 'left': '' + dragSimdikiLeft + 'px' }, 1000);
                 } else if (pw0 > (w2 / 2) && pw0 < (w1 - (w2 / 2))) {
                     dragSimdikiLeft = (pw0 - ((w2 / 2)));
@@ -239,11 +239,11 @@
                     if (($(item).index() - 2) == (itemSay1 - 1)) {
                         dragSimdikiLeft1 = ((cw1 - (cw2 + 25)));
                     } else {
-                        dragSimdikiLeft1 = (cw2 / 2) + ((cw0 * ($(item).index() - 2)) - (cw0 / 2));
+                        dragSimdikiLeft1 = ((cw2 / 2) + ((cw0 * ($(item).index() - 2)) - (cw0 / 2))) + 50;
                     }
                     $(".content .timeLineContents .tlSpace").animate({ 'left': '-' + dragSimdikiLeft1 + 'px' }, 1000);
-                }
-
+                }               
+                
                 dragLeft = p0;
                 $(".tlScroll").animate({ 'left': '' + (dragLeft - 51) + 'px' }, 1000);
                 dragOncekiLeft = dragSimdikiLeft;
